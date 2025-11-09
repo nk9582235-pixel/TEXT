@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: drm-bot
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: BOT_TOKEN
+        scope: run
+      - key: API_ID
+        scope: run
+      - key: API_HASH
+        scope: run
+      - key: AUTH_USERS
+        scope: run
+      - key: GROUPS
+        scope: run
+      - key: LOG_CH
+        scope: run
+    autoDeploy: true
