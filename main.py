@@ -26,7 +26,7 @@ class Config(object):
     for i in range(len(GROUPS)):
         GROUPS[i] = int(GROUPS[i])
 
-    LOG_CH = os.environ.get("LOG_CH", "-1002059340064")
+    LOG_CH = int(os.environ.get("LOG_CH", "-1002059340064"))
 
 # TelegramLogHandler is a custom handler which is inherited from an existing handler. ie, StreamHandler.
 logging.basicConfig(
@@ -112,7 +112,7 @@ if __name__ == "__main__":
             try:
                 await PRO.send_message(chat_id=i, text="**Bot Started! ♾ /pro **")
             except Exception as d:
-                print(d)
+                LOGGER.warning(f"Failed to send message to {i}: {d}")
                 continue
         await idle()
 
